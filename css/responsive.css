@@ -1,0 +1,19 @@
+/* ===== RESPONSIVE: load last so it overrides style.css ===== */
+
+/* Tablet: 992px and below */
+@media (max-width: 992px) {
+  .hero h1 { font-size: 2.4rem; }
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-inner { flex-wrap: wrap; }
+}
+
+/* Mobile: 576px and below */
+@media (max-width: 576px) {
+  .hero { min-height: 60vh; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero .btn { display: block; width: 100%; margin: 0 0 0.75rem 0 !important; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { flex-direction: column; }
+  .footer-inner { flex-direction: column; }
+  .section { padding: 2.5rem 0; }
+}

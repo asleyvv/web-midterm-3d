@@ -1,0 +1,13 @@
+images/board-games.jpg
+https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=900&q=85&fit=crop
+
+images/chess.jpg
+https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=900&q=85&fit=crop
+
+images/dice.jpg
+https://images.unsplash.com/photo-1703319952169-4a3ed572ba0f?w=900&q=85&fit=crop
+
+Photos from Unsplash. Used as illustrative images for fictional student-project listings.
+
+Dice photo page: https://unsplash.com/photos/two-white-dices-sitting-on-top-of-a-black-surface-Ud2YdGYZajk
+License: https://unsplash.com/license

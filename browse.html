@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browse | TTG Marketplace</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Our CSS: style.css first, responsive.css last -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">TTG Marketplace</a>
+        <div class="navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="browse.html">Browse</a></li>
+            <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
+            <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner" id="top">
+      <div class="container">
+        <p class="eyebrow">THE MARKETPLACE</p>
+        <h1>A new home for good games.</h1>
+        <p class="lead">Find your next favorite, from the first roll to the final move.</p>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="listings-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">PICK YOUR NEXT ADVENTURE</p><h2 id="listings-title">Browse the collection</h2></div>
+          <a class="text-link" href="#product-comparison">Compare products ↗</a>
+        </div>
+        <p class="catalog-note">6 sample listings · Board games, strategy, and accessories</p>
+        <p class="small text-muted">Demo collection · sample prices and illustrative photos.</p>
+        <!-- CSS Grid controls the product columns. -->
+        <div class="product-grid">
+          <article class="product-card" id="board-games">
+            <div class="product-image">
+              <img src="images/board-games.jpg" alt="Board games and components arranged on a table" width="900" height="600" loading="lazy">
+              <span class="product-badge">Trade welcome</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Board games</p>
+              <h3>Game night collection</h3>
+              <p class="product-meta">Condition: <strong>Like new</strong></p>
+              <div class="product-bottom"><span class="price">$35</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>A selection for your next game night. Components checked and ready to play.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+          <article class="product-card" id="chess">
+            <div class="product-image">
+              <img src="images/chess.jpg" alt="Chess pieces on a chessboard" width="900" height="600" loading="lazy">
+              <span class="product-badge">For sale</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Strategy</p>
+              <h3>Classic chess set</h3>
+              <p class="product-meta">Condition: <strong>Good</strong></p>
+              <div class="product-bottom"><span class="price">$18</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>A classic two-player strategy set. All 32 pieces included; light wear on the board.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+          <article class="product-card" id="dice">
+            <div class="product-image">
+              <img src="images/dice.jpg" alt="Tabletop gaming dice" width="900" height="600" loading="lazy">
+              <span class="product-badge">For sale</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Accessories</p>
+              <h3>Adventure dice set</h3>
+              <p class="product-meta">Condition: <strong>New</strong></p>
+              <div class="product-bottom"><span class="price">$12</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>A set of dice for tabletop adventures. A simple addition to your gaming bag.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+          <article class="product-card" id="starter">
+            <div class="product-image">
+              <img src="images/board-games.jpg" alt="A collection of tabletop games" width="900" height="600" loading="lazy">
+              <span class="product-badge">Trade welcome</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Board games</p>
+              <h3>Weekend starter bundle</h3>
+              <p class="product-meta">Condition: <strong>Good</strong></p>
+              <div class="product-bottom"><span class="price">$28</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>An accessible bundle for a relaxed weekend. Some shelf wear; all playing pieces included.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+          <article class="product-card" id="club-chess">
+            <div class="product-image">
+              <img src="images/chess.jpg" alt="A chessboard set up for a game" width="900" height="600" loading="lazy">
+              <span class="product-badge">For sale</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Strategy</p>
+              <h3>Club chess set</h3>
+              <p class="product-meta">Condition: <strong>Like new</strong></p>
+              <div class="product-bottom"><span class="price">$24</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>A spare set for a club or study room. Clean pieces and a board in excellent condition.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+          <article class="product-card" id="spare-dice">
+            <div class="product-image">
+              <img src="images/dice.jpg" alt="Dice for a tabletop game" width="900" height="600" loading="lazy">
+              <span class="product-badge">Trade welcome</span>
+            </div>
+            <div class="product-body">
+              <p class="eyebrow">Accessories</p>
+              <h3>Spare dice collection</h3>
+              <p class="product-meta">Condition: <strong>Good</strong></p>
+              <div class="product-bottom"><span class="price">$8</span><span class="location">Astana</span></div>
+              <details>
+                <summary>View details</summary>
+                <p>Extra dice for a growing group. Light signs of use, with clearly readable numbers.</p>
+                <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="product-comparison" aria-labelledby="comparison-title">
+      <div class="container">
+        <p class="eyebrow">FIND YOUR NEXT GAME</p>
+        <h2 id="comparison-title">Compare the collection</h2>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Product comparison">
+          <table class="info-table">
+            <caption>Sample product prices and conditions. Photos are illustrative.</caption>
+            <thead>
+              <tr><th scope="col">Product</th><th scope="col">Category</th><th scope="col">Condition</th><th scope="col">Price</th><th scope="col">Trade</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Game night collection</th><td>Board games</td><td>Like new</td><td>$35</td><td>Welcome</td></tr>
+              <tr><th scope="row">Classic chess set</th><td>Strategy</td><td>Good</td><td>$18</td><td>No</td></tr>
+              <tr><th scope="row">Adventure dice set</th><td>Accessories</td><td>New</td><td>$12</td><td>No</td></tr>
+              <tr><th scope="row">Weekend starter bundle</th><td>Board games</td><td>Good</td><td>$28</td><td>Welcome</td></tr>
+              <tr><th scope="row">Club chess set</th><td>Strategy</td><td>Like new</td><td>$24</td><td>No</td></tr>
+              <tr><th scope="row">Spare dice collection</th><td>Accessories</td><td>Good</td><td>$8</td><td>Welcome</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="condition-guide" aria-labelledby="guide-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">KNOW WHAT YOU ARE GETTING</p><h2 id="guide-title">Every game has a story.</h2></div></div>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Game condition guide">
+          <table class="info-table">
+            <caption>Condition guide — compare a listing before making a trade.</caption>
+            <thead><tr><th scope="col">Condition</th><th scope="col">Box &amp; appearance</th><th scope="col">Components</th><th scope="col">Best for</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">New</th><td>Sealed, unused</td><td>Complete and unopened</td><td>Gifts and collectors</td></tr>
+              <tr><th scope="row">Like new</th><td>Opened, minimal wear</td><td>Complete and checked</td><td>A nearly new experience</td></tr>
+              <tr><th scope="row">Good</th><td>Visible shelf or play wear</td><td>All essential pieces included</td><td>Regular game nights</td></tr>
+              <tr><th scope="row">Fair</th><td>Noticeable wear or repairs</td><td>Any missing pieces must be listed</td><td>Budget finds and spare parts</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="h6">TTG Marketplace</h3>
+        <p class="mb-0">A home for tabletop players to buy, sell and trade.</p>
+      </div>
+      <div>
+        <h3 class="h6">Pages</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h6">Help</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center small mb-0 pb-3">&copy; 2026 TTG Marketplace. Student project.</p>
+  </footer>
+
+  <!-- Fixed back-to-top button (fixed positioning) -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+</body>
+</html>

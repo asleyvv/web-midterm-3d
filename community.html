@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community | TTG Marketplace</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Our CSS: style.css first, responsive.css last -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">TTG Marketplace</a>
+        <div class="navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="browse.html">Browse</a></li>
+            <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="community.html">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-banner" id="top">
+      <div class="container">
+        <p class="eyebrow">MORE THAN A MARKETPLACE</p>
+        <h1>There is a seat for everyone.</h1>
+        <p class="lead">Meet fellow players, learn a new game, and make the next move together.</p>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="welcome-title">
+      <div class="container">
+        <!-- Bootstrap grid creates the introduction's two-column layout. -->
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <img class="community-photo" src="images/board-games.jpg" alt="Board games ready for a shared game night" width="900" height="600">
+          </div>
+          <div class="col-lg-6 community-intro">
+            <p class="eyebrow">LESS SCROLLING. MORE PLAYING.</p>
+            <h2 id="welcome-title">Your next game night starts here.</h2>
+            <p>Bring an old favorite or try something completely new. Our tabletop community is a place to swap ideas, find a group, and enjoy a little friendly competition.</p>
+            <a class="btn btn-tavern" href="#events">Explore game nights</a>
+            <a class="text-link ms-3" href="#community-rules">Read the house rules ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" aria-labelledby="groups-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">FIND YOUR PEOPLE</p><h2 id="groups-title">A table for every player.</h2></div></div>
+        <div class="community-grid">
+          <article class="group-card"><span class="group-number">01 / EXPLORE</span><h3>First-time players</h3><p>No experience needed. Discover approachable games and learn the rules together.</p><a href="#beginner-night">Find a beginner night ↗</a></article>
+          <article class="group-card"><span class="group-number">02 / COMPETE</span><h3>Strategy corner</h3><p>Think a few moves ahead. Bring your chess set and meet your next opponent.</p><a href="#strategy-night">See strategy sessions ↗</a></article>
+          <article class="group-card"><span class="group-number">03 / IMAGINE</span><h3>Adventure party</h3><p>Roll the dice and tell a story. Explore role-playing games with fellow adventurers.</p><a href="#adventure-night">Discover RPG evenings ↗</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="events" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">MAKE ROOM IN YOUR WEEK</p><h2 id="events-title">Around the table.</h2></div><span class="schedule-label">Sample weekly schedule</span></div>
+        <p>These are example events for the student prototype, not confirmed public meetups.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Weekly community schedule">
+          <table class="info-table event-table">
+            <caption>Example game nights · all times are local to Astana.</caption>
+            <thead><tr><th scope="col">When</th><th scope="col">Game night</th><th scope="col">Example location</th><th scope="col">Experience</th></tr></thead>
+            <tbody>
+              <tr id="beginner-night"><td>Tuesday <span>18:00–20:00</span></td><th scope="row">First roll: beginner night</th><td>Campus common room</td><td><span class="level-tag">Everyone welcome</span></td></tr>
+              <tr id="strategy-night"><td>Thursday <span>18:30–20:30</span></td><th scope="row">Chess &amp; strategy</th><td>Student lounge</td><td><span class="level-tag">All levels</span></td></tr>
+              <tr id="adventure-night"><td>Saturday <span>15:00–18:00</span></td><th scope="row">A new RPG adventure</th><td>Tabletop club room</td><td><span class="level-tag">Beginner friendly</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="community-rules" aria-labelledby="rules-title">
+      <div class="container row-container">
+        <div class="row g-4">
+          <div class="col-lg-5"><p class="eyebrow">THE HOUSE RULES</p><h2 id="rules-title">Good company.<br>Fair play.</h2><p>A few small things make a better table for everyone.</p></div>
+          <div class="col-lg-7"><ol class="rules-list"><li><strong>Make people feel welcome.</strong> Explain the rules and give new players time to learn.</li><li><strong>Play fairly.</strong> Respect other players, their choices, and their games.</li><li><strong>Trade honestly.</strong> Describe the condition and mention missing pieces before agreeing to a trade.</li><li><strong>Leave a tidy table.</strong> Count the components and put everything back after a game.</li></ol></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="h6">TTG Marketplace</h3>
+        <p class="mb-0">A home for tabletop players to buy, sell and trade.</p>
+      </div>
+      <div>
+        <h3 class="h6">Pages</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h6">Help</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center small mb-0 pb-3">&copy; 2026 TTG Marketplace. Student project.</p>
+  </footer>
+
+  <!-- Fixed back-to-top button (fixed positioning) -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+</body>
+</html>
