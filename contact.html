@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | TTG Marketplace</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Our CSS: style.css first, responsive.css last -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="Index.html">TTG Marketplace</a>
+        <div class="navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="browse.html">Browse</a></li>
+            <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
+            <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="top" class="page-banner">
+      <div class="container">
+        <p class="eyebrow">LET'S TALK TABLETOP</p>
+        <h1>Contact us</h1>
+        <p class="lead">Have a question about the marketplace or an idea for our community? We would love to hear it.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card listing-card">
+              <div class="card-body p-4">
+                <h2 class="section-title">Send a message</h2>
+                <p id="contact-note" class="catalog-note">Demo contact form for our student project. Messages are not sent or saved.</p>
+                <form aria-describedby="contact-note">
+                  <div class="mb-3">
+                    <label for="contact-name" class="form-label">Your name</label>
+                    <input id="contact-name" type="text" class="form-control" autocomplete="name" placeholder="Enter your name" maxlength="80" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="contact-email" class="form-label">Email</label>
+                    <input id="contact-email" type="email" class="form-control" autocomplete="email" placeholder="you@example.com" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="topic" class="form-label">Topic</label>
+                    <select id="topic" class="form-select" required>
+                      <option value="">Choose a topic</option><option>General question</option><option>Selling and trading</option><option>Community and game nights</option><option>Website feedback</option>
+                    </select>
+                  </div>
+                  <div class="mb-4">
+                    <label for="message" class="form-label">Your message</label>
+                    <textarea id="message" class="form-control" rows="6" maxlength="2000" placeholder="Tell us how we can help..." required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-tavern me-2 mb-2">Send message</button>
+                  <button type="reset" class="btn btn-tavern mb-2">Clear form</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="group-card mb-4">
+              <p class="eyebrow">TTG MARKETPLACE</p>
+              <h2 class="h4">A student team, a shared hobby</h2>
+              <p>We built this marketplace for our midterm frontend project to bring tabletop players together.</p>
+              <p class="mb-0">Try the form or learn more about the project on our <a href="About.html">About page</a>.</p>
+            </div>
+            <div class="group-card">
+              <p class="eyebrow">FIND YOUR NEXT STEP</p>
+              <h2 class="h4">Useful links</h2>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><a href="browse.html#condition-guide">Understand game conditions</a></li>
+                <li class="mb-2"><a href="sell.html">Prepare your first listing</a></li>
+                <li class="mb-2"><a href="community.html">Explore the community</a></li>
+                <li><a href="About.html#faq">Read frequently asked questions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title text-center">What can we help with?</h2>
+        <div class="community-grid">
+          <article class="group-card"><p class="eyebrow">SELL AND TRADE</p><h3>Listing a game</h3><p>Learn which details to include and how to describe your game's condition.</p><a href="sell.html">Visit the Sell page</a></article>
+          <article class="group-card"><p class="eyebrow">MEET AND PLAY</p><h3>Joining the community</h3><p>Discover example game nights and the house rules for a friendly table.</p><a href="community.html#events">Explore game nights</a></article>
+          <article class="group-card"><p class="eyebrow">SHARE AN IDEA</p><h3>Website feedback</h3><p>Have an idea to make the marketplace easier to use? Try the feedback topic in the form.</p><a href="#contact-name">Go to the contact form</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="h6">TTG Marketplace</h3>
+        <p class="mb-0">A home for tabletop players to buy, sell and trade.</p>
+      </div>
+      <div>
+        <h3 class="h6">Pages</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h6">Help</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center small mb-0 pb-3">&copy; 2026 TTG Marketplace. Student project.</p>
+  </footer>
+
+  <!-- Fixed back-to-top button (fixed positioning) -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+</body>
+</html>

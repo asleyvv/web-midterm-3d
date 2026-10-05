@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sell Your Games | TTG Marketplace</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Our CSS: style.css first, responsive.css last -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAVBAR (same on every page) ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="Index.html">TTG Marketplace</a>
+        <div class="navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="Index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="browse.html">Browse</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="sell.html">Sell</a></li>
+            <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+            <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="top" class="page-banner">
+      <div class="container">
+        <p class="eyebrow">MAKE ROOM FOR YOUR NEXT ADVENTURE</p>
+        <h1>Sell your games</h1>
+        <p class="lead">Give a favorite game a new home. Share the details and find another player to enjoy it.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card listing-card">
+              <div class="card-body p-4">
+                <h2 class="section-title">Create a listing</h2>
+                <p id="listing-note" class="catalog-note">Demo form for our student project. Listings cannot be published and photos are not uploaded.</p>
+                <form aria-describedby="listing-note">
+                  <div class="mb-3">
+                    <label for="game-title" class="form-label">Game title</label>
+                    <input id="game-title" type="text" class="form-control" placeholder="e.g. Classic chess set" maxlength="100" required>
+                  </div>
+                  <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                      <label for="category" class="form-label">Category</label>
+                      <select id="category" class="form-select" required>
+                        <option value="">Choose a category</option>
+                        <option>Board games</option><option>Card games</option><option>Miniatures</option><option>RPG books</option><option>Dice and accessories</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="condition" class="form-label">Condition</label>
+                      <select id="condition" class="form-select" required>
+                        <option value="">Choose a condition</option>
+                        <option>New</option><option>Like new</option><option>Good</option><option>Fair</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                      <label for="price" class="form-label">Price ($)</label>
+                      <input id="price" type="number" class="form-control" min="0" step="0.01" placeholder="25.00" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="city" class="form-label">City</label>
+                      <input id="city" type="text" class="form-control" placeholder="e.g. Astana" maxlength="80" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Game description</label>
+                    <textarea id="description" class="form-control" rows="5" maxlength="2000" placeholder="Describe the condition, included components and any missing pieces." required></textarea>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input id="trade" type="checkbox" class="form-check-input">
+                    <label for="trade" class="form-check-label">I am open to trades</label>
+                  </div>
+                  <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                      <label for="seller-name" class="form-label">Your name</label>
+                      <input id="seller-name" type="text" class="form-control" autocomplete="name" maxlength="80" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="seller-email" class="form-label">Email</label>
+                      <input id="seller-email" type="email" class="form-control" autocomplete="email" required>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-tavern me-2 mb-2">Publish listing</button>
+                  <button type="reset" class="btn btn-tavern mb-2">Clear form</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="group-card mb-4">
+              <p class="eyebrow">A GOOD LISTING STARTS HERE</p>
+              <h2 class="h4">Before you list</h2>
+              <ul>
+                <li>Count all cards and playing pieces.</li>
+                <li>Mention damage or missing components.</li>
+                <li>Take clear photos in good light.</li>
+                <li>Choose a fair price for the condition.</li>
+              </ul>
+              <a href="browse.html#condition-guide">Read the condition guide</a>
+            </div>
+            <div class="group-card">
+              <p class="eyebrow">NEED A LITTLE HELP?</p>
+              <h2 class="h4">New to selling?</h2>
+              <p>Look through the sample listings for ideas or visit our Contact page with a question.</p>
+              <a href="browse.html">Browse examples</a>
+              <p class="mt-3 mb-0"><a href="contact.html">Contact the team</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title text-center">Prepare your game for a new table</h2>
+        <ol class="steps">
+          <li class="step"><h3 class="h5">Check the contents</h3><p class="mb-0">Make sure the game is complete and describe any wear honestly.</p></li>
+          <li class="step"><h3 class="h5">Share the details</h3><p class="mb-0">Add a description and decide whether you want a sale or a trade.</p></li>
+          <li class="step"><h3 class="h5">Pack it carefully</h3><p class="mb-0">Keep the pieces together so the next player can enjoy the whole game.</p></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="h6">TTG Marketplace</h3>
+        <p class="mb-0">A home for tabletop players to buy, sell and trade.</p>
+      </div>
+      <div>
+        <h3 class="h6">Pages</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="sell.html">Sell</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h6">Help</h3>
+        <ul class="list-unstyled mb-0">
+          <li><a href="About.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="text-center small mb-0 pb-3">&copy; 2026 TTG Marketplace. Student project.</p>
+  </footer>
+
+  <!-- Fixed back-to-top button (fixed positioning) -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+</body>
+</html>
