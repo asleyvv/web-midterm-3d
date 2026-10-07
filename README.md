@@ -1,6 +1,6 @@
 # TTG Marketplace
 
-A responsive frontend midterm project about buying, selling and trading tabletop games. Built with simple HTML5, CSS and bundled Bootstrap CSS. No JavaScript or backend is required. 
+A responsive frontend midterm project about buying, selling and trading tabletop games. Built with simple HTML5, CSS and bundled Bootstrap CSS.
 https://asleyvv.github.io/web-midterm-3d/Index.html
 ## Team
 
