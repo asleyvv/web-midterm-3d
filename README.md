@@ -1,7 +1,7 @@
 # TTG Marketplace
 
-A responsive frontend midterm project about buying, selling and trading tabletop games. Built with simple HTML5, CSS and bundled Bootstrap CSS. No JavaScript or backend is required.
-
+A responsive frontend midterm project about buying, selling and trading tabletop games. Built with simple HTML5, CSS and bundled Bootstrap CSS. No JavaScript or backend is required. 
+https://asleyvv.github.io/web-midterm-3d/Index.html
 ## Team
 
 - SAILAU DINMUKHAMMED
@@ -42,8 +42,3 @@ Listings, prices and events are examples. Photos are illustrative; sources are r
 
 Sell and Contact submit buttons use native browser validation. After valid submission, the current page reloads; no listing or message is saved or delivered. The form fields have no name attributes, so their values are not included in the submission. Selected photos are not uploaded. Clear form resets the fields.
 
-## Online publication
-
-The assignment also requires publishing the website and sharing its working URL. A Git push alone does not enable hosting.
-
-For GitHub Pages, select Settings > Pages > Deploy from a branch > main > / (root), then save. Since the original filename `Index.html` is preserved, share the full home-page URL ending in `/Index.html`. Confirm that all six pages open before submission. The repository does not yet record a verified live URL.
