@@ -1,0 +1,88 @@
+/* extra styles for the browse page controls and favorites */
+
+.browse-controls {
+    background: #fffdf8;
+    border: 1px solid #d9c9ae;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.no-results {
+    padding: 1rem 1.25rem;
+    background: #f5dfb8;
+    border-radius: 8px;
+    color: var(--primary-dark);
+}
+
+/* save button on the cards */
+.fav-btn {
+    width: 100%;
+    margin-bottom: 0.9rem;
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    color: var(--primary);
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+}
+
+.fav-btn:hover {
+    background: var(--bg-alt);
+}
+
+.fav-btn.is-saved {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.fav-btn:focus-visible,
+.fav-remove:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* saved list */
+.fav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 650px;
+}
+
+.fav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.6rem;
+    background: #fffdf8;
+    border: 1px solid #d9c9ae;
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    animation: fav-in 0.4s;
+}
+
+.fav-remove {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+@keyframes fav-in {
+    from { background: #f5dfb8; }
+    to { background: #fffdf8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fav-item,
+    .fav-btn {
+        animation: none;
+        transition: none;
+    }
+}
