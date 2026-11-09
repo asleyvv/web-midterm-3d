@@ -34,7 +34,11 @@ All pages share the navigation bar, footer, colors and fonts.
 - Reusable functions such as `filterListings()` and `sortListings()` return new arrays.
 
 ### Person B: Forms and theme (`js/validation.js`, `js/theme.js`)
-*(Person B: describe your work here: validated fields, error messages, success message, theme toggle.)*
+- The Sell and Contact forms are checked with JavaScript instead of the browser's default messages (the script adds `novalidate` to the form).
+- Validated fields: required fields, minimum text length (2 characters for names, city and game title, 10 characters for the description and message), valid email format, price greater than 0, and a chosen option in every drop-down list.
+- Each field is checked when the user leaves it (`blur`), and all fields are checked again on `submit`. Error messages appear under the field, the field gets a red border, and the first wrong field receives focus.
+- `preventDefault()` stops the page from reloading. If all fields are valid, a success message appears above the form and the form is cleared. The "Clear form" button (`reset`) also removes the error messages.
+- Theme switcher: `theme.js` adds a "Dark mode / Light mode" button to the navbar (`click`). It sets `data-bs-theme` on `<html>` (Bootstrap 5.3 dark mode), and our tavern colors in `css/pages.css` change with it. The choice is saved in `localStorage`, so it stays when the user moves to another page.
 
 ### Person C: jQuery (`js/jquery-effects.js`)
 jQuery 3.7.1 is loaded on every page (CDN with a local fallback in `js/jquery-3.7.1.min.js`).
