@@ -1,42 +1,46 @@
 // theme.js - light/dark theme toggle
 
-// create the toggle button
-var themeButton = document.createElement("button");
-themeButton.type = "button";
-themeButton.className = "theme-toggle";
-
-// change the button text depending on the theme
-function updateButtonText() {
-  if (document.body.classList.contains("dark-theme")) {
-    themeButton.textContent = "Light mode";
-  } else {
-    themeButton.textContent = "Dark mode";
-  }
-}
+var root = document.documentElement;
 
 // use the theme saved last time
 if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-theme");
+  root.setAttribute("data-bs-theme", "dark");
 }
-updateButtonText();
 
-// switch the theme on click and save the choice
-themeButton.addEventListener("click", function () {
-  document.body.classList.toggle("dark-theme");
+// true if dark theme is on
+function isDark() {
+  return root.getAttribute("data-bs-theme") === "dark";
+}
 
-  if (document.body.classList.contains("dark-theme")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
+// create the button and put it in the navbar
+function addThemeButton() {
+  var button = document.createElement("button");
+  button.type = "button";
+  button.className = "theme-toggle";
+
+  // change the button text depending on the theme
+  function updateText() {
+    button.textContent = isDark() ? "Light mode" : "Dark mode";
   }
+  updateText();
 
-  updateButtonText();
-});
+  // switch the theme on click and save the choice
+  button.addEventListener("click", function () {
+    var newTheme = isDark() ? "light" : "dark";
+    root.setAttribute("data-bs-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateText();
+  });
 
-// put the button in the navigation bar
-var navigation = document.querySelector("nav");
-if (navigation) {
-  navigation.appendChild(themeButton);
-} else {
-  document.body.appendChild(themeButton);
+  var menu = document.querySelector(".navbar-nav");
+  if (menu) {
+    var item = document.createElement("li");
+    item.className = "nav-item theme-item";
+    item.appendChild(button);
+    menu.appendChild(item);
+  } else {
+    document.body.appendChild(button);
+  }
 }
+
+document.addEventListener("DOMContentLoaded", addThemeButton);

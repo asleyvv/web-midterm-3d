@@ -406,59 +406,152 @@ summary:focus-visible,
   margin-bottom: 16px;
 }
 
-/* ===== Theme toggle button ===== */
+/* ===== Theme toggle button (sits in the navbar) ===== */
+.theme-item {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
 .theme-toggle {
-  border: 1px solid currentColor;
   background: transparent;
-  color: inherit;
+  color: #F3E3CC;
+  border: 1px solid #F3E3CC;
   border-radius: 6px;
-  padding: 6px 12px;
-  margin-left: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
-/* ===== Dark theme ===== */
-body.dark-theme {
-  background: #181a1b;
-  color: #e6e6e6;
+.theme-toggle:hover {
+  background: #F3E3CC;
+  color: #2B2118;
 }
 
-body.dark-theme header,
-body.dark-theme nav,
-body.dark-theme footer {
-  background: #101213;
-  color: #e6e6e6;
+/* ===== Dark theme =====
+   theme.js sets data-bs-theme="dark" on <html>.
+   Bootstrap changes its own parts, here we change our tavern colors. */
+html[data-bs-theme="dark"] {
+  --bg: #1c1713;
+  --bg-alt: #251e18;
+  --surface: #2b231c;
+  --primary: #e0a870;        /* lighter wood, so links and titles are readable */
+  --primary-dark: #f0d9b5;
+  --text: #eadfce;
+  --muted: #b8a791;
 }
 
-body.dark-theme a {
-  color: #8ab4f8;
+/* parts that use primary colors as a background */
+html[data-bs-theme="dark"] .site-header,
+html[data-bs-theme="dark"] .site-footer,
+html[data-bs-theme="dark"] .hero {
+  background: #120e0b;
 }
 
-body.dark-theme section,
-body.dark-theme article,
-body.dark-theme form,
-body.dark-theme details,
-body.dark-theme table,
-body.dark-theme [class*="card"] {
-  background-color: #23272a;
-  color: #e6e6e6;
-  border-color: #3a3f42;
+html[data-bs-theme="dark"] .info-table thead {
+  background: #120e0b;
+  color: #F3E3CC;
 }
 
-body.dark-theme input,
-body.dark-theme select,
-body.dark-theme textarea {
-  background: #181a1b;
-  color: #e6e6e6;
-  border: 1px solid #555;
+html[data-bs-theme="dark"] .category-tile:hover,
+html[data-bs-theme="dark"] .filter-btn.active,
+html[data-bs-theme="dark"] .filter-btn.active:hover {
+  color: #1c1713;
 }
 
-body.dark-theme .success-message {
+/* cards and boxes */
+html[data-bs-theme="dark"] .listing-card,
+html[data-bs-theme="dark"] .product-card,
+html[data-bs-theme="dark"] .group-card,
+html[data-bs-theme="dark"] .table-wrap,
+html[data-bs-theme="dark"] .browse-controls,
+html[data-bs-theme="dark"] .fav-item,
+html[data-bs-theme="dark"] .product-badge {
+  background: var(--surface);
+  color: var(--text);
+}
+
+html[data-bs-theme="dark"] .listing-card,
+html[data-bs-theme="dark"] .product-card,
+html[data-bs-theme="dark"] .table-wrap,
+html[data-bs-theme="dark"] .browse-controls {
+  border-color: #4a3c2f;
+}
+
+/* saved list keeps its red left border */
+html[data-bs-theme="dark"] .fav-item {
+  border-top-color: #4a3c2f;
+  border-right-color: #4a3c2f;
+  border-bottom-color: #4a3c2f;
+  animation: none;
+}
+
+html[data-bs-theme="dark"] .page-banner {
+  border-bottom-color: #3d3228;
+}
+
+html[data-bs-theme="dark"] .listing-img {
+  background: #3a2e24;
+}
+
+/* tables and details */
+html[data-bs-theme="dark"] .info-table th,
+html[data-bs-theme="dark"] .info-table td,
+html[data-bs-theme="dark"] .product-card details {
+  border-color: #3d3228;
+}
+
+html[data-bs-theme="dark"] .info-table tbody tr:nth-child(even) {
+  background: #251e18;
+}
+
+html[data-bs-theme="dark"] .info-table tbody tr:target {
+  background: #4a3720;
+}
+
+/* small highlights */
+html[data-bs-theme="dark"] .level-tag,
+html[data-bs-theme="dark"] .schedule-label {
+  background: #2f3a26;
+  color: #cfe0bd;
+}
+
+html[data-bs-theme="dark"] .no-results {
+  background: #3a2d1c;
+}
+
+html[data-bs-theme="dark"] .row-highlight > * {
+  background: #4a3720 !important;
+}
+
+/* forms */
+html[data-bs-theme="dark"] .form-control,
+html[data-bs-theme="dark"] .form-select {
+  background-color: #1c1713;
+  border-color: #4a3c2f;
+  color: var(--text);
+}
+
+html[data-bs-theme="dark"] .error-message {
+  color: #ff8a80;
+}
+
+html[data-bs-theme="dark"] .field-invalid {
+  border-color: #ff8a80 !important;
+}
+
+html[data-bs-theme="dark"] .success-message {
   background: #1e3a28;
   color: #a8e6bb;
   border-color: #2f5a3d;
 }
 
-body.dark-theme .error-message {
-  color: #ff8a80;
+/* FAQ accordion (About page): Bootstrap uses blue here */
+html[data-bs-theme="dark"] .accordion {
+  --bs-accordion-bg: var(--surface);
+  --bs-accordion-color: var(--text);
+  --bs-accordion-border-color: #4a3c2f;
+  --bs-accordion-btn-color: var(--text);
+  --bs-accordion-active-bg: #3a2d1c;
+  --bs-accordion-active-color: var(--text);
 }
