@@ -98,6 +98,11 @@
     <section class="section section-alt" id="faq">
       <div class="container" style="max-width: 760px;">
         <h2 class="section-title text-center">Frequently asked questions</h2>
+        <div class="faq-search">
+          <label for="faq-search" class="form-label">Search the questions</label>
+          <input id="faq-search" type="search" class="form-control" placeholder="Try trade, free, condition..." autocomplete="off">
+        </div>
+        <p id="faq-empty" class="no-results" hidden>No question matches your search.</p>
         <div class="accordion" id="faqList">
 
           <div class="accordion-item">
@@ -124,6 +129,24 @@
             </h3>
             <div id="faq3" class="accordion-collapse">
               <div class="accordion-body">Every listing uses the same condition grades (New, Like new, Good, Fair) and includes photos. See the condition guide on the Browse page.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <span class="accordion-button">Do I need an account to browse?</span>
+            </h3>
+            <div id="faq4" class="accordion-collapse">
+              <div class="accordion-body">No. Browsing, searching and saving favorites works without an account. Accounts are not part of this prototype.</div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <span class="accordion-button">How do I meet other players?</span>
+            </h3>
+            <div id="faq5" class="accordion-collapse">
+              <div class="accordion-body">Visit the Community page to see example game nights and filter them by experience level.</div>
             </div>
           </div>
 
@@ -161,5 +184,9 @@
 
   <!-- Fixed back-to-top button (fixed positioning) -->
   <a href="#top" class="back-to-top" aria-label="Back to top">Top</a>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
+  <script src="js/jquery-effects.js"></script>
 </body>
 </html>
