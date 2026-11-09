@@ -1,13 +1,3 @@
-/*
- * jquery-effects.js  (Person C)
- * jQuery features shared by all pages. Every feature checks that its
- * elements exist on the current page, so one file works everywhere.
- *
- *  - initBackToTop()      all pages      fade in/out + smooth scroll
- *  - initFaq()            About.html     accordion + live search
- *  - initEventFilter()    community.html filter events by level
- *  - initGroupCards()     community.html hover effect + jump to event
- */
 $(document).ready(function () {
   "use strict";
 
@@ -152,7 +142,6 @@ $(document).ready(function () {
     });
   }
 
-  // ---------- start: runs when the DOM is ready (DOMContentLoaded) ----------
   initBackToTop();
   initFaq();
   initEventFilter();

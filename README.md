@@ -11,13 +11,9 @@ interactivity to the same project.
 
 | Member | Endterm part |
 | --- | --- |
-| Person A | Browse page and JavaScript fundamentals |
-| Person B | Forms, validation and theme switcher |
-| Person C | jQuery, FAQ, Community page, README and deployment |
-
-Team members: SAILAU DINMUKHAMMED, Duman Zhanybekov, Daniyal Akylbek.
-*(Replace "Person A/B/C" with the real names before submitting.)*
-
+| Duman Zhanybekov | Browse page and JavaScript fundamentals |
+| SAILAU DINMUKHAMMED | Forms, validation and theme switcher |
+| Daniyal Akylbek | jQuery, FAQ, Community page, README and deployment |
 ## Pages
 
 - `Index.html`: home page, categories, featured listings, how it works.
