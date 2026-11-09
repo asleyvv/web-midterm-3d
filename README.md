@@ -52,8 +52,7 @@ jQuery 3.7.1 is loaded on every page (CDN with a local fallback in `js/jquery-3.
 | Back to top | All pages | Button fades in after scrolling and scrolls smoothly to the top. |
 
 jQuery concepts used: ID, class, element, attribute and descendant selectors; traversal with `closest()`, `find()`,
-`siblings()` and `children()`; events `click`, `input`, `keydown`, `mouseenter`, `mouseleave` and page start
-(`DOMContentLoaded` through `$(function(){})`); effects `slideUp`, `slideDown`, `fadeIn`, `fadeOut`, `toggle` and `animate`.
+`siblings()` and `children()`; events `click`, `input`, `keydown`, `mouseenter`, `mouseleave` and page start; effects `slideUp`, `slideDown`, `fadeIn`, `fadeOut`, `toggle` and `animate`.
 
 ## How to test
 
