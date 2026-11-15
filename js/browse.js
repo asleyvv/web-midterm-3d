@@ -16,6 +16,26 @@ var favCount = document.getElementById("fav-count");
 var compareBody = document.getElementById("compare-body");
 
 
+// makes text safe to put inside html (listings from the Sell form are typed by users)
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+
+// whole prices stay as they are (35), others get 2 decimals (25.50)
+function formatPrice(price) {
+  if (price % 1 === 0) {
+    return String(price);
+  }
+  return price.toFixed(2);
+}
+
+
 // returns the html for one card
 function makeCard(item) {
   var badge = item.trade ? "Trade welcome" : "For sale";
@@ -23,20 +43,20 @@ function makeCard(item) {
   var btnText = saved ? "♥ Saved" : "♡ Save";
 
   return `
-    <article class="product-card" id="${item.slug}">
+    <article class="product-card" id="${escapeHtml(item.slug)}">
       <div class="product-image">
-        <img src="${item.image}" alt="${item.alt}" width="900" height="600" loading="lazy">
+        <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.alt)}" width="900" height="600" loading="lazy">
         <span class="product-badge">${badge}</span>
       </div>
       <div class="product-body">
-        <p class="eyebrow">${item.category}</p>
-        <h3>${item.title}</h3>
-        <p class="product-meta">Condition: <strong>${item.condition}</strong></p>
-        <div class="product-bottom"><span class="price">$${item.price}</span><span class="location">${item.city}</span></div>
+        <p class="eyebrow">${escapeHtml(item.category)}</p>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p class="product-meta">Condition: <strong>${escapeHtml(item.condition)}</strong></p>
+        <div class="product-bottom"><span class="price">$${formatPrice(item.price)}</span><span class="location">${escapeHtml(item.city)}</span></div>
         <button type="button" class="fav-btn ${saved ? "is-saved" : ""}" data-id="${item.id}" aria-pressed="${saved}">${btnText}</button>
         <details>
           <summary>View details</summary>
-          <p>${item.info}</p>
+          <p>${escapeHtml(item.info)}</p>
           <p class="small">Sample listing · illustrative photo. Buying and messaging are not available in this prototype.</p>
         </details>
       </div>
@@ -120,10 +140,24 @@ function fillCompareTable() {
   var rows = "";
   for (var i = 0; i < listings.length; i++) {
     var item = listings[i];
-    rows += "<tr><th scope=\"row\">" + item.title + "</th><td>" + item.category + "</td><td>" +
-      item.condition + "</td><td>$" + item.price + "</td><td>" + (item.trade ? "Welcome" : "No") + "</td></tr>";
+    rows += "<tr><th scope=\"row\">" + escapeHtml(item.title) + "</th><td>" + escapeHtml(item.category) + "</td><td>" +
+      escapeHtml(item.condition) + "</td><td>$" + formatPrice(item.price) + "</td><td>" + (item.trade ? "Welcome" : "No") + "</td></tr>";
   }
   compareBody.innerHTML = rows;
+}
+
+
+// adds the listings saved from the Sell page to the main array (newest first)
+function addUserListings() {
+  var saved = getSavedListings();
+
+  for (var i = 0; i < saved.length; i++) {
+    listings.unshift(saved[i]);
+
+    if (categories.indexOf(saved[i].category) === -1) {
+      categories.push(saved[i].category);
+    }
+  }
 }
 
 
@@ -144,7 +178,7 @@ function addFavItem(item) {
   li.id = "fav-" + item.id;
 
   var span = document.createElement("span");
-  span.textContent = item.title + " - $" + item.price;
+  span.textContent = item.title + " - $" + formatPrice(item.price);
 
   var btn = document.createElement("button");
   btn.type = "button";
@@ -192,6 +226,7 @@ function toggleFavorite(id) {
 // ----- events -----
 
 document.addEventListener("DOMContentLoaded", function () {
+  addUserListings();
   fillCategories();
   fillCompareTable();
   applyFilters();

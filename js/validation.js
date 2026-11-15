@@ -87,7 +87,8 @@ function checkField(field) {
 }
 
 // show a success message above the form
-function showSuccess() {
+// published is true when a listing was saved on the Sell page
+function showSuccess(published) {
   var old = document.querySelector(".success-message");
   if (old) {
     old.remove();
@@ -95,7 +96,15 @@ function showSuccess() {
 
   var message = document.createElement("p");
   message.className = "success-message";
-  message.textContent = "Thank you! Your form was sent successfully.";
+  if (published) {
+    message.textContent = "Your listing was published! ";
+    var link = document.createElement("a");
+    link.href = "browse.html";
+    link.textContent = "See it on the Browse page";
+    message.appendChild(link);
+  } else {
+    message.textContent = "Thank you! Your form was sent successfully.";
+  }
   form.insertAdjacentElement("beforebegin", message);
 
   // hide it after 5 seconds
@@ -129,7 +138,9 @@ if (form) {
     });
 
     if (allOk) {
-      showSuccess();
+      // on the Sell page (storage.js is loaded) the listing is also saved for Browse
+      var published = typeof saveListingFromForm === "function" && saveListingFromForm();
+      showSuccess(published);
       form.reset();
     } else {
       // go to the first field with a mistake

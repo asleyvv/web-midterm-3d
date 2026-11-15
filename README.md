@@ -18,7 +18,7 @@ interactivity to the same project.
 
 - `Index.html`: home page, categories, featured listings, how it works.
 - `browse.html`: listings built from an array, search, category filter, price sort, favorites list.
-- `sell.html`: listing form.
+- `sell.html`: listing form; a valid listing is saved in the browser and appears on Browse.
 - `community.html`: player groups, filterable game-night schedule, house rules.
 - `About.html`: mission, team, story, searchable FAQ accordion.
 - `contact.html`: contact form.
@@ -27,11 +27,12 @@ All pages share the navigation bar, footer, colors and fonts.
 
 ## New endterm features
 
-### Person A: Browse page (`js/data.js`, `js/browse.js`)
+### Person A: Browse page (`js/data.js`, `js/browse.js`, `js/storage.js`)
 - Two arrays: `listings` (project data) and `categories`.
 - Cards are created from the array with loops (`forEach`) instead of being written in HTML.
 - Search (`input`), category filter and sort (`change`), "Save" button and favorites list (`click`) where items can be added and removed.
 - Reusable functions such as `filterListings()` and `sortListings()` return new arrays.
+- **Sell to Browse:** when the Sell form is valid, `saveListingFromForm()` (`js/storage.js`) stores the listing as JSON in `localStorage`. On Browse, `addUserListings()` reads it with `getSavedListings()` and adds it to the `listings` array (newest first), so search, filter, sort and favorites work on it too. Text typed by users is passed through `escapeHtml()` before it is shown, and a sample photo is chosen from the category. The seller name and email are not saved.
 
 ### Person B: Forms and theme (`js/validation.js`, `js/theme.js`)
 - The Sell and Contact forms are checked with JavaScript instead of the browser's default messages (the script adds `novalidate` to the form).
@@ -58,6 +59,7 @@ jQuery concepts used: ID, class, element, attribute and descendant selectors; tr
 
 1. Open the live site or `Index.html` locally.
 2. **Browse:** type "chess" in the search box, change category and sort, press "Save" on a card, remove it from the saved list.
+   **Sell then Browse:** fill the Sell form with valid data and press "Publish listing", then open Browse: the new listing is the first card and its category is in the filter.
 3. **Sell / Contact:** submit empty and invalid data to see messages under the fields, then valid data for the success message; switch the light/dark theme.
 4. **About:** open and close FAQ questions; type "trade" in the FAQ search.
 5. **Community:** press the filter buttons; click "Find a beginner night" on a group card.
@@ -74,4 +76,4 @@ The site is published with GitHub Pages from the `main` branch (Settings, Pages,
 
 ## Limitations
 
-Listings, prices and events are examples. Photos are illustrative (sources in `images/SOURCES.txt`). There are no accounts, purchases, messaging or event registration, and form data is not sent anywhere.
+Listings, prices and events are examples. Listings published on the Sell page are stored with `localStorage`, so they are visible only in the same browser and are not shared with other users (that would need a real backend and database); clearing the browser data removes them. Photos are illustrative (sources in `images/SOURCES.txt`). There are no accounts, purchases, messaging or event registration, and form data is not sent anywhere.
