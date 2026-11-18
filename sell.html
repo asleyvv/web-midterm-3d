@@ -51,7 +51,7 @@
           <div class="col-lg-8">
             <div class="card listing-card">
               <div class="card-body p-4">
-                <h2 class="section-title">Create a listing</h2>
+                <h2 class="section-title" id="sell-form-title">Create a listing</h2>
                 <p id="listing-note" class="catalog-note">Demo form for our student project. Your listing is saved in this browser and appears on the Browse page. Photos are not uploaded, so a sample photo for the category is used.</p>
                 <form aria-describedby="listing-note">
                   <div class="mb-3">
@@ -102,7 +102,7 @@
                       <input id="seller-email" type="email" class="form-control" autocomplete="email" required>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-tavern me-2 mb-2">Publish listing</button>
+                  <button type="submit" id="sell-submit" class="btn btn-tavern me-2 mb-2">Publish listing</button>
                   <button type="reset" class="btn btn-tavern mb-2">Clear form</button>
                 </form>
               </div>
@@ -175,6 +175,7 @@
   <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
   <script src="js/jquery-effects.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/listing.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/validation.js"></script>
 </body>

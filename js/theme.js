@@ -3,8 +3,12 @@
 var root = document.documentElement;
 
 // use the theme saved last time
-if (localStorage.getItem("theme") === "dark") {
-  root.setAttribute("data-bs-theme", "dark");
+try {
+  if (localStorage.getItem("theme") === "dark") {
+    root.setAttribute("data-bs-theme", "dark");
+  }
+} catch (error) {
+  // Some privacy settings block localStorage; the toggle should still work for this page.
 }
 
 // true if dark theme is on
@@ -28,7 +32,11 @@ function addThemeButton() {
   button.addEventListener("click", function () {
     var newTheme = isDark() ? "light" : "dark";
     root.setAttribute("data-bs-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
+    try {
+      localStorage.setItem("theme", newTheme);
+    } catch (error) {
+      // The page's theme still changes even when preferences cannot be saved.
+    }
     updateText();
   });
 

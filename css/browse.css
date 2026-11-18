@@ -86,3 +86,17 @@
         transition: none;
     }
 }
+
+/* Person B: management controls for user-created listings */
+.my-listings-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.my-listings-list { list-style: none; padding: 0; margin: 0; }
+.my-listing-item { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 1rem; margin-bottom: .65rem; background: #fffdf8; border: 1px solid #d9c9ae; border-radius: 8px; }
+.my-listing-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.my-listing-item .catalog-note { display: block; }
+
+/* Match the existing dark tavern palette used by .fav-item and .product-card. */
+html[data-bs-theme="dark"] .my-listing-item {
+    background: var(--surface);
+    color: var(--text);
+    border-color: #4a3c2f;
+}

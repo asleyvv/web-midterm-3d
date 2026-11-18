@@ -1,41 +1,41 @@
-// storage.js - keeps listings made on the Sell page so Browse can show them
-// There is no backend, so we use localStorage (it only stores text, so we use JSON)
-
+// Person B: shared storage for Sell and Browse. Requires listing.js loaded first.
 var STORAGE_KEY = "userListings";
+var FAVORITES_KEY = "favoriteListings";
+var listingStore = new ListingStore(STORAGE_KEY);
 
-// the Sell form has no photo upload, so each category gets a sample photo
+// The demo does not upload photos; choose a matching sample picture.
 var categoryImages = {
   "Board games": "images/board-games.jpg",
   "Card games": "images/board-games.jpg",
   "Miniatures": "images/chess.jpg",
   "RPG books": "images/dice.jpg",
   "Dice and accessories": "images/dice.jpg",
-  "Strategy": "images/chess.jpg"
+  "Strategy": "images/chess.jpg",
+  "Accessories": "images/dice.jpg"
 };
 
+function getSavedListings() { return listingStore.getAll(); }
 
-// returns the array of saved listings (empty array if nothing is saved)
-function getSavedListings() {
+function loadFavorites() {
   try {
-    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (Array.isArray(saved)) {
-      return saved;
-    }
-  } catch (e) {
-    // broken or blocked storage: act like nothing is saved
-  }
-  return [];
+    var values = JSON.parse(localStorage.getItem(FAVORITES_KEY));
+    if (!Array.isArray(values)) return [];
+    return Array.from(new Set(values.filter(function (id) {
+      return Number.isSafeInteger(id) && id > 0;
+    })));
+  } catch (error) { return []; }
 }
 
+function saveFavorites(ids) {
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(ids));
+    return true;
+  } catch (error) { return false; }
+}
 
-// reads the Sell form, saves the listing, returns true if it worked
-function saveListingFromForm() {
+function readListingForm() {
   var category = document.getElementById("category").value;
-  var id = Date.now();   // unique number, bigger than the ids in data.js
-
-  var listing = {
-    id: id,
-    slug: "user-" + id,
+  return {
     title: document.getElementById("game-title").value.trim(),
     category: category,
     condition: document.getElementById("condition").value,
@@ -46,14 +46,18 @@ function saveListingFromForm() {
     alt: "Sample photo for the " + category + " category",
     info: document.getElementById("description").value.trim()
   };
-  // the seller name and email are not saved on purpose
+}
 
+// Returns the saved Listing or false. Seller identity/email are deliberately not persisted.
+function saveListingFromForm(editId) {
   try {
-    var list = getSavedListings();
-    list.push(listing);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-    return true;
-  } catch (e) {
-    return false;
-  }
+    var data = readListingForm();
+    if (editId != null) return listingStore.update(editId, data);
+    // Avoid collisions between rapid submissions and existing listings.
+    var id = Date.now();
+    while (listingStore.getById(id)) id++;
+    data.id = id;
+    data.slug = "user-" + id;
+    return listingStore.add(data);
+  } catch (error) { return false; }
 }

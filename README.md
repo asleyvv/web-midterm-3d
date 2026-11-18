@@ -77,3 +77,31 @@ The site is published with GitHub Pages from the `main` branch (Settings, Pages,
 ## Limitations
 
 Listings, prices and events are examples. Listings published on the Sell page are stored with `localStorage`, so they are visible only in the same browser and are not shared with other users (that would need a real backend and database); clearing the browser data removes them. Photos are illustrative (sources in `images/SOURCES.txt`). There are no accounts, purchases, messaging or event registration, and form data is not sent anywhere.
+
+
+## Person B: OOP, CRUD, persistent favorites (extension)
+
+- `js/listing.js`: `Listing` has `matches(text)` / `priceLabel()`; `ListingStore` has `load()`, `save()`, `getAll()`, `getById()`, `add()`, `update()`, `remove()`, `clear()`. Each saved record becomes a `Listing` instance. Invalid JSON and malformed records are ignored.
+- `js/storage.js`: saves listings under the existing `userListings` key (compatible with earlier published ads), and favorites under `favoriteListings` using JSON and guarded localStorage access. No seller name/email is stored.
+- `browse.html`: **My listings** only manages user-created ads. Click **Edit** to prefill `sell.html?edit=ID`, **Delete** to remove one ad, or **Clear all** to remove all user ads (with confirmation). Built-in sample ads remain unchanged.
+- Favorites survive navigation/reload and favorites referring to deleted ads are cleaned up. Comparison and search update after CRUD operations.
+- `sell.html`: existing user ads can be edited; contact fields are optional while editing because contact details are intentionally not persisted. `contact.html` keeps its original validation flow.
+
+### Manual test checklist
+
+1. Publish a new listing in Sell; confirm it appears in Browse and My listings.
+2. Edit it from Browse, update title/price, save changes; confirm one updated listing (no duplicates).
+3. Favorite the listing and a sample listing; reload Browse; both remain in Saved games.
+4. Delete the edited listing; verify it disappears from search, comparison and favorites, while the sample remains.
+5. Add two listings; choose Clear all; verify only user listings are deleted.
+6. In browser console set `localStorage.setItem("userListings", "{bad")`, then reload Browse; sample listings still render (restore/remove the key afterwards).
+7. Try Sell and Contact with invalid inputs and confirm validation messages continue to work.
+
+The application uses browser localStorage and has no backend or shared accounts.
+
+### Regression review (Person B)
+
+- The existing theme and other team features remain available on every page. `js/theme.js` now also tolerates disabled `localStorage`.
+- The **My listings** cards now follow the same dark tavern colors as saved favorites and product cards.
+- Category filters retain the built-in category order and refresh after Delete / Clear all.
+- `browse.js` keeps all original helper functions and event handlers, and the existing static listings remain intact.

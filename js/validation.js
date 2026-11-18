@@ -1,6 +1,44 @@
 // validation.js - form validation for sell.html and contact.html
 
 var form = document.querySelector("form");
+var isSellForm = !!document.getElementById("game-title");
+var editId = null;
+
+// Populate the Sell form only for ads created in this browser.
+if (isSellForm) {
+  var editParam = new URLSearchParams(window.location.search).get("edit");
+  if (editParam !== null) {
+    var id = Number(editParam);
+    var existing = /^\d+$/.test(editParam) && listingStore.getById(id);
+    if (existing) {
+      editId = existing.id;
+      document.getElementById("game-title").value = existing.title;
+      document.getElementById("category").value = existing.category;
+      // Legacy categories may not be present in the new-listing dropdown.
+      if (document.getElementById("category").value !== existing.category) {
+        var option = new Option(existing.category, existing.category);
+        document.getElementById("category").appendChild(option);
+        document.getElementById("category").value = existing.category;
+      }
+      document.getElementById("condition").value = existing.condition;
+      document.getElementById("price").value = existing.price;
+      document.getElementById("city").value = existing.city;
+      document.getElementById("description").value = existing.info;
+      document.getElementById("trade").checked = existing.trade;
+      document.getElementById("sell-form-title").textContent = "Edit your listing";
+      document.getElementById("sell-submit").textContent = "Save changes";
+      document.getElementById("listing-note").textContent = "Update your listing details. Seller contact fields are not saved for privacy, so they are optional while editing.";
+      document.getElementById("seller-name").required = false;
+      document.getElementById("seller-email").required = false;
+    } else {
+      var warning = document.createElement("p");
+      warning.className = "error-message";
+      warning.textContent = "Listing not found. You can create a new listing below.";
+      form.parentNode.insertBefore(warning, form);
+    }
+  }
+}
+
 
 // show an error message under a field
 function showError(field, message) {
@@ -88,7 +126,7 @@ function checkField(field) {
 
 // show a success message above the form
 // published is true when a listing was saved on the Sell page
-function showSuccess(published) {
+function showSuccess(published, updated) {
   var old = document.querySelector(".success-message");
   if (old) {
     old.remove();
@@ -97,7 +135,7 @@ function showSuccess(published) {
   var message = document.createElement("p");
   message.className = "success-message";
   if (published) {
-    message.textContent = "Your listing was published! ";
+    message.textContent = updated ? "Your listing was updated! " : "Your listing was published! ";
     var link = document.createElement("a");
     link.href = "browse.html";
     link.textContent = "See it on the Browse page";
@@ -139,9 +177,24 @@ if (form) {
 
     if (allOk) {
       // on the Sell page (storage.js is loaded) the listing is also saved for Browse
-      var published = typeof saveListingFromForm === "function" && saveListingFromForm();
-      showSuccess(published);
-      form.reset();
+      if (isSellForm) {
+        var saved = typeof saveListingFromForm === "function" && saveListingFromForm(editId);
+        if (!saved) {
+          var prior = document.querySelector(".success-message");
+          if (prior) prior.remove();
+          var error = document.createElement("p");
+          error.className = "error-message success-message";
+          error.textContent = "Could not save your listing. Check browser storage and try again.";
+          form.insertAdjacentElement("beforebegin", error);
+          return;
+        }
+        showSuccess(true, editId !== null);
+        // Keep the edited values on screen; reset only after creating a new post.
+        if (editId === null) form.reset();
+      } else {
+        showSuccess(false, false);
+        form.reset();
+      }
     } else {
       // go to the first field with a mistake
       form.querySelector(".field-invalid").focus();
