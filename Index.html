@@ -155,6 +155,30 @@
       </div>
     </section>
 
+
+    <!-- Marketplace dashboard (numbers are calculated by js/stats.js) -->
+    <section class="section section-alt" id="stats" aria-labelledby="stats-title">
+      <div class="container">
+        <h2 class="section-title text-center" id="stats-title">Marketplace at a glance</h2>
+        <p class="text-center stats-note">Calculated from the catalog, including listings saved from the Sell page in this browser.</p>
+        <div class="stat-tiles">
+          <div class="stat-tile"><span class="stat-value" id="stat-count">-</span><span class="stat-label">Listings</span></div>
+          <div class="stat-tile"><span class="stat-value" id="stat-categories">-</span><span class="stat-label">Categories</span></div>
+          <div class="stat-tile"><span class="stat-value" id="stat-average">-</span><span class="stat-label">Average price</span></div>
+          <div class="stat-tile"><span class="stat-value stat-value-small" id="stat-range">-</span><span class="stat-label">Price range</span></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-head">
+            <h3>By category</h3>
+            <div class="chart-toggle" role="group" aria-label="Chart metric">
+              <button type="button" class="btn btn-outline-dark metric-btn active" data-metric="count" aria-pressed="true">Number of listings</button>
+              <button type="button" class="btn btn-outline-dark metric-btn" data-metric="average" aria-pressed="false">Average price</button>
+            </div>
+          </div>
+          <div id="stats-chart" class="chart" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ===== FOOTER (same on every page) ===== -->
@@ -187,7 +211,11 @@
   <a href="#hero" class="back-to-top" aria-label="Back to top">Top</a>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
+  <script src="js/data.js"></script>
+  <script src="js/listing.js"></script>
+  <script src="js/storage.js"></script>
   <script src="js/jquery-effects.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/stats.js"></script>
 </body>
 </html>

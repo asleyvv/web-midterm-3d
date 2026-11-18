@@ -1,8 +1,8 @@
 # TTG Marketplace
 
 A responsive website about buying, selling and trading tabletop games (board games, chess, dice and accessories).
-The **midterm** version was built with HTML5, CSS and Bootstrap. The **endterm** version adds JavaScript and jQuery
-interactivity to the same project.
+The **midterm** version was built with HTML5, CSS and Bootstrap. The **endterm** version added JavaScript and jQuery
+interactivity. The **final** version adds data from an external API, classes, a statistics dashboard and browser storage.
 
 - **Live site:** https://asleyvv.github.io/web-midterm-3d/Index.html
 - **Repository:** https://github.com/asleyvv/web-midterm-3d
@@ -16,10 +16,10 @@ interactivity to the same project.
 | Daniyal Akylbek | jQuery, FAQ, Community page, README and deployment |
 ## Pages
 
-- `Index.html`: home page, categories, featured listings, how it works.
+- `Index.html`: home page, categories, featured listings, how it works, marketplace dashboard.
 - `browse.html`: listings built from an array, search, category filter, price sort, favorites list.
 - `sell.html`: listing form; a valid listing is saved in the browser and appears on Browse.
-- `community.html`: player groups, filterable game-night schedule, house rules.
+- `community.html`: player groups, filterable game-night schedule, Game library (external API), house rules.
 - `About.html`: mission, team, story, searchable FAQ accordion.
 - `contact.html`: contact form.
 
@@ -55,31 +55,20 @@ jQuery 3.7.1 is loaded on every page (CDN with a local fallback in `js/jquery-3.
 jQuery concepts used: ID, class, element, attribute and descendant selectors; traversal with `closest()`, `find()`,
 `siblings()` and `children()`; events `click`, `input`, `keydown`, `mouseenter`, `mouseleave` and page start; effects `slideUp`, `slideDown`, `fadeIn`, `fadeOut`, `toggle` and `animate`.
 
-## How to test
+## Final project features
 
-1. Open the live site or `Index.html` locally.
-2. **Browse:** type "chess" in the search box, change category and sort, press "Save" on a card, remove it from the saved list.
-   **Sell then Browse:** fill the Sell form with valid data and press "Publish listing", then open Browse: the new listing is the first card and its category is in the filter.
-3. **Sell / Contact:** submit empty and invalid data to see messages under the fields, then valid data for the success message; switch the light/dark theme.
-4. **About:** open and close FAQ questions; type "trade" in the FAQ search.
-5. **Community:** press the filter buttons; click "Find a beginner night" on a group card.
-6. **Any page:** scroll down and use the "Top" button.
-7. Open the browser console (F12): there should be no errors.
+### External API: Game library (Person C: `js/api.js`, `community.html`)
+- **API:** [D&D 5e API](https://www.dnd5eapi.co/api/monsters), a free public API for tabletop RPG data. It needs no key and no login.
+- **How it works:** `fetch()` with `async/await` loads the list of monsters. A card is created for each of the first 12 results (`createElement` and `textContent`, so API text is never inserted as HTML). Pressing a card loads `/api/monsters/{index}` and shows armor class, hit points and challenge rating. The search field filters the loaded list while the user types (`input`).
+- **Four states:** *loading* (spinner), *success* (cards), *empty* (no results or no search match) and *error* (message and a "Try again" button). The error state covers no connection, a server answer that is not OK (`response.ok` is checked because `fetch` does not fail on 404 or 500), a wrong data format and a timeout after 8 seconds (`AbortController`).
+- **jQuery:** `fadeIn` for the cards, `slideDown` and `slideUp` for the details panel.
 
-## Run locally
+### Dashboard: Marketplace at a glance (Person C: `js/stats.js`, `Index.html`)
+- Reads the listings from `data.js` and the ones saved from the Sell page (`getSavedListings()`), then calculates the number of listings, categories, average price and price range.
+- A bar chart shows listings by category. Two buttons switch the chart between *number of listings* and *average price*.
+- jQuery `animate()` counts the numbers up and grows the bars.
 
-Download or clone the repository and open `Index.html`. No build step is needed. Keep the folders together so CSS, JS and image paths work.
-
-## Deployment
-
-The site is published with GitHub Pages from the `main` branch (Settings, Pages, Deploy from branch).
-
-## Limitations
-
-Listings, prices and events are examples. Listings published on the Sell page are stored with `localStorage`, so they are visible only in the same browser and are not shared with other users (that would need a real backend and database); clearing the browser data removes them. Photos are illustrative (sources in `images/SOURCES.txt`). There are no accounts, purchases, messaging or event registration, and form data is not sent anywhere.
-
-
-## Person B: OOP, CRUD, persistent favorites (extension)
+### OOP, CRUD and persistent favorites (Person B)
 
 - `js/listing.js`: `Listing` has `matches(text)` / `priceLabel()`; `ListingStore` has `load()`, `save()`, `getAll()`, `getById()`, `add()`, `update()`, `remove()`, `clear()`. Each saved record becomes a `Listing` instance. Invalid JSON and malformed records are ignored.
 - `js/storage.js`: saves listings under the existing `userListings` key (compatible with earlier published ads), and favorites under `favoriteListings` using JSON and guarded localStorage access. No seller name/email is stored.
@@ -87,7 +76,7 @@ Listings, prices and events are examples. Listings published on the Sell page ar
 - Favorites survive navigation/reload and favorites referring to deleted ads are cleaned up. Comparison and search update after CRUD operations.
 - `sell.html`: existing user ads can be edited; contact fields are optional while editing because contact details are intentionally not persisted. `contact.html` keeps its original validation flow.
 
-### Manual test checklist
+#### Manual test checklist
 
 1. Publish a new listing in Sell; confirm it appears in Browse and My listings.
 2. Edit it from Browse, update title/price, save changes; confirm one updated listing (no duplicates).
@@ -99,9 +88,35 @@ Listings, prices and events are examples. Listings published on the Sell page ar
 
 The application uses browser localStorage and has no backend or shared accounts.
 
-### Regression review (Person B)
+#### Regression review (Person B)
 
 - The existing theme and other team features remain available on every page. `js/theme.js` now also tolerates disabled `localStorage`.
 - The **My listings** cards now follow the same dark tavern colors as saved favorites and product cards.
 - Category filters retain the built-in category order and refresh after Delete / Clear all.
 - `browse.js` keeps all original helper functions and event handlers, and the existing static listings remain intact.
+
+## How to test
+
+1. Open the live site or `Index.html` locally.
+2. **Browse:** type "chess" in the search box, change category and sort, press "Save" on a card, remove it from the saved list.
+   **Sell then Browse:** fill the Sell form with valid data and press "Publish listing", then open Browse: the new listing is the first card and its category is in the filter.
+3. **Sell / Contact:** submit empty and invalid data to see messages under the fields, then valid data for the success message; switch the light/dark theme.
+4. **About:** open and close FAQ questions; type "trade" in the FAQ search.
+5. **Community:** press the filter buttons; click "Find a beginner night" on a group card.
+6. **Any page:** scroll down and use the "Top" button.
+7. **Game library (Community):** wait for the monster cards, search for "dragon", press a card to see its stats. To see the error state, set DevTools, Network, "Offline" and reload, then go online and press "Try again".
+8. **Dashboard (Home):** scroll to "Marketplace at a glance", press the chart buttons; publish a listing on Sell and reload Home to see the numbers change.
+9. **My listings (Browse):** edit, delete and clear your listings (see the checklist in the Person B section).
+10. Open the browser console (F12): there should be no errors.
+
+## Run locally
+
+Download or clone the repository and open `Index.html`. No build step is needed. Keep the folders together so CSS, JS and image paths work.
+
+## Deployment
+
+The site is published with GitHub Pages from the `main` branch (Settings, Pages, Deploy from branch).
+
+## Limitations
+
+The Game library needs an internet connection and depends on the free public API being online. Listings, prices and events are examples. Listings published on the Sell page are stored with `localStorage`, so they are visible only in the same browser and are not shared with other users (that would need a real backend and database); clearing the browser data removes them. Photos are illustrative (sources in `images/SOURCES.txt`). There are no accounts, purchases, messaging or event registration, and form data is not sent anywhere.

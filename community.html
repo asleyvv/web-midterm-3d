@@ -160,6 +160,31 @@
         </div>
       </div>
     </section>
+    <section class="section section-alt" id="library" aria-labelledby="library-title">
+      <div class="container">
+        <h2 id="library-title">Game library: creatures for your campaign.</h2>
+        <p>Running a tabletop RPG? These monsters come live from the free <a href="https://www.dnd5eapi.co" target="_blank" rel="noopener">D&amp;D 5e API</a>. Search the list and press a card to see its stats.</p>
+        <div class="library-tools">
+          <label for="monster-search" class="visually-hidden">Search monsters</label>
+          <input id="monster-search" type="search" class="form-control" placeholder="Search monsters, for example: dragon" autocomplete="off" disabled>
+          <span id="monster-count" class="filter-count" aria-live="polite"></span>
+        </div>
+
+        <div id="api-loading" class="api-state" role="status">
+          <span class="spinner" aria-hidden="true"></span> Loading monsters from the API...
+        </div>
+        <div id="api-empty" class="api-state" hidden>
+          <p id="api-empty-text" class="mb-0">No monsters found.</p>
+        </div>
+        <div id="api-error" class="api-state api-error" role="alert" hidden>
+          <p id="api-error-text">Something went wrong.</p>
+          <button type="button" id="api-retry" class="btn btn-tavern">Try again</button>
+        </div>
+
+        <div id="monster-list" class="monster-grid" hidden></div>
+        <div id="monster-details" class="monster-details" aria-live="polite" style="display: none;"></div>
+      </div>
+    </section>
     <section class="section section-alt" id="community-rules" aria-labelledby="rules-title">
       <div class="container">
         <div class="row g-4">
@@ -214,6 +239,7 @@
   <script>window.jQuery || document.write('<script src="js/jquery-3.7.1.min.js"><\/script>')</script>
   <script src="js/jquery-effects.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/api.js"></script>
 </body>
 
 </html>
